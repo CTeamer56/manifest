@@ -10,6 +10,7 @@ import GoalsScreen from '../screens/GoalsScreen';
 import TransactionsScreen from '../screens/TransactionsScreen';
 import LogOutScreen from '../screens/LogOutScreen';
 import GamesScreen from '../screens/GamesScreen';
+import DKScreen from '../games/DonkeyKong';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -118,8 +119,13 @@ const GamesStack = createStackNavigator(
     Games: {
       screen: GamesScreen,
     },
+    DK: {
+      screen: DKScreen,
+    },
   },
-  config
+  config.extends({
+    initialRouteName: 'Games',
+  })
 );
 
 GamesStack.navigationOptions = {
